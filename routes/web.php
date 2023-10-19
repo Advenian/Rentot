@@ -23,6 +23,9 @@ Route::get('/userview', function () {
 Route::get('/adminview', function () {
     return view('admin.index');
 });
+Route::get('/adminviewtrucks', function () {
+    return view('admin.truck-index');
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
