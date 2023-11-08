@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('trucks', function (Blueprint $table) {
             $table->id();
-            $table->string('brand')->unique();
+            $table->foreignId('renter_id')->nullable()->constrained('renters')->onDelete('cascade');
+            $table->string('brand');
             $table->string('model');
             $table->enum('type', ['Pickup', 'Box', 'Semi', 'Dump', 'Refrigerated', 'Flatbed', 'Tow']);
             $table->string('license_plate');
@@ -25,8 +26,10 @@ return new class extends Migration
             $table->string('fuel_capacity');
             $table->string('mileage');
             $table->string('daily_cost');
+            $table->string('image_path');
             $table->enum('status', ['unavailable', 'available', 'in maintenance']);
             $table->timestamp('failed_at')->useCurrent();
+            $table->timestamps();
         });
     }
 

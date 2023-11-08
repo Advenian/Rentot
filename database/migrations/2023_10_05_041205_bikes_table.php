@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('bikes', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('renter_id')->nullable()->constrained('renters')->onDelete('cascade');
+
             $table->string('brand')->unique();
             $table->string('model');
             $table->enum('type', ['Sport', 'Cruiser', 'Touring', 'ADV', 'Naked', 'Dual-Sport', 'Dirt', 'Cafe Racer', 'Electric', 'Scooter', 'Moped', 'Classic']);
@@ -25,8 +27,10 @@ return new class extends Migration
             $table->string('fuel_capacity');
             $table->string('mileage');
             $table->string('daily_cost');
+            $table->string('image_path');
             $table->enum('status', ['unavailable', 'available', 'in maintenance']);
             $table->timestamp('failed_at')->useCurrent();
+            $table->timestamps();
         });
     }
 

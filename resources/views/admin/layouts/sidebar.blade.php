@@ -13,22 +13,21 @@
           <li class="nav-item">
               <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse"
                   href="{{ url('#') }}">
-                  <i class="bi bi-menu-button-wide"></i><span>Components</span><i
-                      class="bi bi-chevron-down ms-auto"></i>
+                  <i class="bi bi-truck"></i><span>Vehicles</span><i class="bi bi-chevron-down ms-auto"></i>
               </a>
               <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                   <li>
-                      <a href="{{ url('components-alerts.html') }}">
+                      <a href="{{ route('trucks.index') }}">
                           <i class="bi bi-circle"></i><span>Trucks</span>
                       </a>
                   </li>
                   <li>
-                      <a href="{{ url('components-alerts.html') }}">
+                      <a href="{{ route('cars.index') }}">
                           <i class="bi bi-circle"></i><span>Cars</span>
                       </a>
                   </li>
                   <li>
-                      <a href="{{ url('components-alerts.html') }}">
+                      <a href="{{ route('bikes.index') }}">
                           <i class="bi bi-circle"></i><span>Bikes</span>
                       </a>
                   </li>

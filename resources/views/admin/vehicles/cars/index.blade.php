@@ -19,6 +19,65 @@
                 <div class="col-lg-12">
                     <div class="row">
 
+                        @foreach ($cars as $car)
+                            <div class="col-xxl-4 col-md-6 mb-5">
+                                <div class="cool-card">
+                                    <div class="cool-card-body">
+                                        <h5 class="card-title">VFX-50 <span>| Pick-up Car</span></h5>
+
+                                        <div class="d-flex align-items-center">
+                                            <img src="{{ \Illuminate\Support\Facades\Storage::url($car->image_path) }}"
+                                                class="cool-card-image" alt="">
+                                        </div>
+
+                                        <table class="cool-card-content">
+                                            <tr>
+                                                <td>Brand</td>
+                                                <td>:</td>
+                                                <td>{{ $car->brand }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Model</td>
+                                                <td>:</td>
+                                                <td>{{ $car->model }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Mileage</td>
+                                                <td>:</td>
+                                                <td>{{ $car->mileage }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Type</td>
+                                                <td>:</td>
+                                                <td>{{ $car->type }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Cargo Capacity</td>
+                                                <td>:</td>
+                                                <td>{{ $car->cargo_capacity }}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>Fuel Capacity</td>
+                                                <td>:</td>
+                                                <td>{{ $car->fuel_capacity }}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>Status</td>
+                                                <td>:</td>
+                                                <td>{{ $car->status }}</td>
+                                            </tr>
+                                        </table>
+                                        <hr>
+                                        <div>
+                                            <button>Update</button>
+                                            <button>Update</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
                         <!-- Sales Card -->
                         <div class="col-xxl-4 col-md-6">
                             <div class="card info-card sales-card">

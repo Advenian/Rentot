@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('cars', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('renter_id')->nullable()->constrained('renters')->onDelete('cascade');
+
             $table->string('brand')->unique();
             $table->string('model');
             $table->enum('type', ['Sedan', 'SUV', 'Coupe', 'Convertible', 'Hatchback', 'Luxury', 'Electric', 'Sport']);
@@ -24,8 +26,10 @@ return new class extends Migration
             $table->string('fuel_capacity');
             $table->string('mileage');
             $table->string('daily_cost');
+            $table->string('image_path');
             $table->enum('status', ['unavailable', 'available', 'in maintenance']);
             $table->timestamp('failed_at')->useCurrent();
+            $table->timestamps();
         });
     }
 
